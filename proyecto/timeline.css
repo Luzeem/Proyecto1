@@ -1,0 +1,132 @@
+body{
+    background: rgb(18, 92, 156);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.timeline{
+    content: '';
+    position: absolute;
+    background: white;
+    width: 1px;
+    left: 50%;
+}
+.evento{
+    position: relative;
+    margin: 20px;
+    opacity: 0;
+}
+/*PARES*/
+.evento:nth-child(odd){
+    float: left;
+}
+.evento:nth-child(odd)::before{
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    left: -30px;
+}
+.evento:nth-child(odd)::after{
+    content: '';
+    position: absolute;
+    background: white;
+    width: 10px;
+    height: 2px;
+    left: -10px;
+    top: 23px;
+}
+
+/*IMPARES*/
+.evento:nth-child(even){
+    float: right;
+}
+.evento:nth-child(even)::before{
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    right: -30px;
+}
+.evento:nth-child(even)::after{
+    content: '';
+    position: absolute;
+    background: white;
+    width: 10px;
+    height: 2px;
+    right: -10px;
+    top: 23px;
+}
+
+.evento {
+    width: 200px;
+    padding: 15px;
+    color: white;
+    background: rgb(255, 255, 255, 0.2);
+}
+img{
+    width: 100%;
+    height: 50%;
+}
+.fecha {
+    display: inline-block;
+	font-size: 20px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #2D4059;
+	text-decoration: none;
+	color: white;
+	margin: 0 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	scale: 1;
+	transition: background-color, transform .5s linear;
+
+}
+.titulo{
+
+ font-size: 20px;
+	letter-spacing: 5px;
+	text-align: center;
+    margin: 15px;
+}
+
+.imagen{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    margin: 0 10 20px;
+
+}
+
+.texto{
+    font-size: 15px;
+    text-align: left;
+    margin: 0 15 0 10px;
+}
+html{
+	scroll-behavior: smooth;
+}
+
+/* ANIMACIONES */
+._show{
+    opacity: 1;
+    animation: __show 1s cubic-bezier(.17,.67,.78,-0.14)
+}
+._hide{
+    opacity: 0;
+    animation: __hide 1s cubic-bezier(.17,.67,.78,-0.14)
+}
+@keyframes __show {
+    0% {transform: translateY(500px); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+@keyframes __hide {
+    0% {transform: translateY(0); opacity: 1;}
+    100% {transform: translateY(500px); opacity: 0;}
+}
